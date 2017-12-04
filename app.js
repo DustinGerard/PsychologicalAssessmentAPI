@@ -1,6 +1,4 @@
 function login(){
-console.log($("#usr").val());
-console.log($("#pwd").val());
 $.ajax(
       {
         url: 'http://127.0.0.1:5000/login',
@@ -25,6 +23,7 @@ $.ajax(
       });
 }
 
+
 function postanswer1() {
     $.ajax(
         {
@@ -43,7 +42,6 @@ function postanswer1() {
 
                 }
                 else {
-
 
                 }
             }
@@ -506,74 +504,194 @@ function total_dep() {
             }
         });
 }
-/*
-function getinfo_parent(){
+function get_anxresult(){
 
- $("#parent").show();
+	 $("#result_anx").show();
 
 $.ajax({
-    url: 'http://127.0.0.1:5000/newinfo_parent',
-    type: "GET",
-    dataType: "json",
-    success: function(resp) {
+    		url: 'http://127.0.0.1:5000/get_anxresult',
+    		type: "GET",
+    		dataType: "json",
+    		success: function(resp) {
 
-if (resp.status  == 'ok') {
-   for (i = 0; i < resp.count; i++)
+				if (resp.status  == 'ok') {
+				   for (i = 0; i < resp.count; i++)
                                   {
-   first_name = resp.entries[i].first_name;
-   last_name = resp.entries[i].last_name;
-   birthdate = resp.entries[i].birthdate;
-   age = resp.entries[i].age;
-   relationship = resp.entries[i].relationship;
-                                       $("#parent").append(parent(first_name,last_name, birthdate, age, relationship));
+									   totalscore = resp.entries[i].totalscore;
+									   diagnosis = resp.entries[i].diagnosis;
+                                       $("#result_anx").append(result_anx(totalscore,diagnosis));
 
                                   }
 
-} else
+
+
+				} else
+				{
+                                       $("#result_anx").html("");
+					alert(resp.message);
+				}
+    		}
+		});
+}
+
+
+function result_anx(totalscore,diagnosis)
 {
-                                       $("#parent").html("");
-alert(resp.message);
+   return '<div class="container-fluid" >' +
+       '<h6>Total Score:</h6>'+
+	   '<b><p>' +totalscore+  '</p></b>'+
+       '<h6>Diagnosis:</h6>'+
+		'<b><p>' +diagnosis+ '</p></b>'+
+       '</div>'
 }
-    }
-});
+
+
+
+
+function get_depresult(){
+
+	 $("#result_dep").show();
+
+$.ajax({
+    		url: 'http://127.0.0.1:5000/get_depresult',
+    		type: "GET",
+    		dataType: "json",
+    		success: function(resp) {
+
+				if (resp.status  == 'ok') {
+				   for (i = 0; i < resp.count; i++)
+                                  {
+									   totalscore = resp.entries[i].totalscore;
+									   diagnosis = resp.entries[i].diagnosis;
+                                       $("#result_dep").append(result_dep(totalscore,diagnosis));
+
+                                  }
+
+
+
+				} else
+				{
+                                       $("#result_dep").html("");
+					alert(resp.message);
+				}
+    		}
+		});
 }
-*/
+
+
+function result_dep(totalscore,diagnosis)
+{
+   return '<div class="container-fluid" >' +
+       '<h6>Total Score:</h6>'+
+	   '<b><p>' +totalscore+  '</p></b>'+
+       '<h6>Diagnosis:</h6>'+
+		'<b><p>' +diagnosis+ '</p></b>'+
+       '</div>'
+}
+
+
+function review_anx_answers(){
+
+	 $("#review_anx").show();
+
+$.ajax({
+    		url: 'http://127.0.0.1:5000/review_anx_answers',
+    		type: "GET",
+    		dataType: "json",
+    		success: function(resp) {
+
+				if (resp.status  == 'ok') {
+				   for (i = 0; i < resp.count; i++)
+                                  {
+									   anx_qstn = resp.entries[i].anx_qstn;
+									   question = resp.entries[i].question;
+									   correspondence = resp.entries[i].correspondence;
+									   points = resp.entries[i].points;
+                                       $("#review_anx").append(review_anx(anx_qstn, question, correspondence, points));
+
+                                  }
+
+
+
+				} else
+				{
+                                       $("#review_anx").html("");
+					alert(resp.message);
+				}
+    		}
+		});
+}
 
 
 
 
-/*function answer() {
+
+function review_anx(anx_qstn, question, correspondence, points)
+{
+   return '<div class="container-fluid" >' +
+       '<h6>Question No.</h6>'+
+	   '<b><p>' +anx_qstn+  '</p></b>'+
+       '<h6>Question</h6>'+
+       '<b><p>' +question+ '</p></b>'+
+       '<h6>Your Answer</h6>'+
+	   '<b><p>' +correspondence+  '</p></b>'+
+       '<h6>Points</h6>'+
+	   '<b><p>' +points+  '</p></b>'+
+       '</div>'
+}
 
 
-    $.ajax(
-        {
-            url: "http://127.0.0.1:5000/answer",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                'one': $("#one").val(),
-                'two': $("#two").val(),
-                'three': $("#three").val(),
-                'four': $("#four").val(),
-                'five': $("#five").val(),
-                'six': $("#six").val(),
-                'seven': $("#seven").val(),
-                'eight': $("#eight").val()
-            }),
-            type: "POST",
-            dataType: "json",
-            error: function (e) {
-            },
-            success: function (resp) {
-                if (resp.status == 'ok') {
-                    alert('depp');
-                }
-                else {
+
+function review_dep_answers(){
+
+	 $("#review_dep").show();
+
+$.ajax({
+    		url: 'http://127.0.0.1:5000/review_dep_answers',
+    		type: "GET",
+    		dataType: "json",
+    		success: function(resp) {
+
+				if (resp.status  == 'ok') {
+				   for (i = 0; i < resp.count; i++)
+                                  {
+									   dep_qstn = resp.entries[i].dep_qstn;
+									   question = resp.entries[i].question;
+									   correspondence = resp.entries[i].correspondence;
+									   points = resp.entries[i].points;
+                                       $("#review_dep").append(review_dep(dep_qstn, question, correspondence, points));
+
+                                  }
 
 
-                }
-            }
-        });
-}*/
+
+				} else
+				{
+                                       $("#review_dep").html("");
+					alert(resp.message);
+				}
+    		}
+		});
+}
+
+
+function review_dep(dep_qstn, question, correspondence, points)
+{
+   return '<div class="container-fluid" >' +
+       '<h6>Question No.</h6>'+
+	   '<b><p>' +dep_qstn+  '</p></b>'+
+       '<h6>Question</h6>'+
+       '<b><p>' +question+ '</p></b>'+
+       '<h6>Your Answer</h6>'+
+	   '<b><p>' +correspondence+  '</p></b>'+
+       '<h6>Points</h6>'+
+	   '<b><p>' +points+  '</p></b>'+
+       '</div>'
+}
+
+
+
+
 
 
 /*function login() {
@@ -674,6 +792,11 @@ function redirect14() {
     return false;
 }
 
+function redirect15() {
+    window.location =  'DepressionQuestion9.html';
+    return false;
+}
+
 function finishedanxietyassessment() {
     window.location =  'AnxietyFinishedAssessment.html';
     return false;
@@ -692,4 +815,111 @@ function viewanxietyresult() {
 function viewdepressionresult() {
     window.location =  'DepressionAssessmentResult';
     return false;
+}
+
+function success() {
+    window.location =  'SuccessfulRegistration.html';
+    return false;
+}
+
+function first_name() {
+    $.ajax(
+        {
+            url: "http://127.0.0.1:5000/SignUp/first_name/getfname",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                'fname': $("#fname").val()
+
+            }),
+            type: "POST",
+            dataType: "json",
+            error: function (e) {
+            },
+            success: function (resp) {
+                if (resp.status == 'ok') {
+
+                }
+                else {
+
+
+                }
+            }
+        });
+}
+
+function last_name() {
+    $.ajax(
+        {
+            url: "http://127.0.0.1:5000/SignUp/last_name/getlname",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                'lname': $("#lname").val()
+
+            }),
+            type: "POST",
+            dataType: "json",
+            error: function (e) {
+            },
+            success: function (resp) {
+                if (resp.status == 'ok') {
+
+                }
+                else {
+
+
+                }
+            }
+        });
+}
+
+
+function user_name() {
+    $.ajax(
+        {
+            url: "http://127.0.0.1:5000/SignUp/user_name/getuname",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                'uname': $("#uname").val()
+
+            }),
+            type: "POST",
+            dataType: "json",
+            error: function (e) {
+            },
+            success: function (resp) {
+                if (resp.status == 'ok') {
+
+                }
+                else {
+
+
+                }
+            }
+        });
+}
+
+
+function password() {
+    $.ajax(
+        {
+            url: "http://127.0.0.1:5000/SignUp/password/getpword",
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                'pword': $("#pword").val()
+
+            }),
+            type: "POST",
+            dataType: "json",
+            error: function (e) {
+            },
+            success: function (resp) {
+                if (resp.status == 'ok') {
+
+                }
+                else {
+
+
+                }
+            }
+        });
 }
