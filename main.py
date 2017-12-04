@@ -246,6 +246,110 @@ def total_dep():
 #         return jsonify({'status': 'error', 'message': res[0][0]})
 #     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+@app.route('/get_anxresult', methods=['GET'])
+def get_anxresult():
+    res = spcall('get_anxresult', (), True)
+
+    if 'Error' in str(res[0][0]):
+        return jsonify({'status': 'error', 'message': res[0][0]})
+
+    recs = []
+    for r in res:
+     recs.append({"totalscore": str(r[0]), "diagnosis": str(r[1])})
+    return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
+
+
+@app.route('/get_depresult', methods=['GET'])
+def get_depresult():
+    res = spcall('get_depresult', (), True)
+
+    if 'Error' in str(res[0][0]):
+        return jsonify({'status': 'error', 'message': res[0][0]})
+
+    recs = []
+    for r in res:
+     recs.append({"totalscore": str(r[0]), "diagnosis": str(r[1])})
+    return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
+
+
+@app.route('/review_anx_answers', methods=['GET'])
+def review_anx():
+    res = spcall('review_anx_answers', (), True)
+
+    if 'Error' in str(res[0][0]):
+        return jsonify({'status': 'error', 'message': res[0][0]})
+
+    recs = []
+    for r in res:
+     recs.append({"anx_qstn": str(r[0]), "question": str(r[1]), "correspondence": str(r[2]), "points": str(r[3])})
+    return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
+
+@app.route('/review_dep_answers', methods=['GET'])
+def review_dep():
+    res = spcall('review_dep_answers', (), True)
+
+    if 'Error' in str(res[0][0]):
+        return jsonify({'status': 'error', 'message': res[0][0]})
+
+    recs = []
+    for r in res:
+     recs.append({"dep_qstn": str(r[0]), "question": str(r[1]), "correspondence": str(r[2]), "points": str(r[3])})
+    return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
+
+
+
+
+
+
+
+@app.route('/SignUp/first_name/getfname', methods=['POST'])
+def first_name():
+    params = request.get_json()
+    fname = params["fname"]
+    res = spcall('first_name', (fname), True)
+
+    if 'Error' in res[0][0]:
+        return jsonify({'status': 'error', 'message': res[0][0]})
+    return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+@app.route('/SignUp/last_name/getlname', methods=['POST'])
+def last_name():
+    params = request.get_json()
+    lname = params["lname"]
+    res = spcall('last_name', (lname), True)
+
+    if 'Error' in res[0][0]:
+        return jsonify({'status': 'error', 'message': res[0][0]})
+    return jsonify({'status': 'ok', 'message': res[0][0]})
+
+@app.route('/SignUp/user_name/getuname', methods=['POST'])
+def user_name():
+    params = request.get_json()
+    uname = params["uname"]
+    res = spcall('user_name', (uname), True)
+
+    if 'Error' in res[0][0]:
+        return jsonify({'status': 'error', 'message': res[0][0]})
+    return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+@app.route('/SignUp/password/getpword', methods=['POST'])
+def password():
+    params = request.get_json()
+    pword = params["pword"]
+    res = spcall('password', (pword), True)
+
+    if 'Error' in res[0][0]:
+        return jsonify({'status': 'error', 'message': res[0][0]})
+    return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
 
 
 @app.after_request

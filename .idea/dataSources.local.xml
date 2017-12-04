@@ -10,5 +10,10 @@
       <user-name>postgres</user-name>
       <introspection-schemas>CSC_181:public</introspection-schemas>
     </data-source>
+    <data-source name="postgres@localhost" uuid="a097a5f3-9de7-4eaf-b679-e9c0f35d9d83">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>
