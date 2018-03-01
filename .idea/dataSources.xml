@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="CSC_181@localhost [2]" uuid="34197d56-1f3e-4319-aaab-2c71197e9b7b">
+    <data-source source="LOCAL" name="antidote@localhost" uuid="531ec52a-d442-45e1-8daa-10fbeb8504c5">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/CSC_181</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="postgres@localhost" uuid="a097a5f3-9de7-4eaf-b679-e9c0f35d9d83">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/antidote</jdbc-url>
     </data-source>
   </component>
 </project>

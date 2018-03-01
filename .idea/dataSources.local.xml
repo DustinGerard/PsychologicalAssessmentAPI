@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="CSC_181@localhost [2]" uuid="34197d56-1f3e-4319-aaab-2c71197e9b7b">
-      <database-info product="PostgreSQL" version="9.6.1" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4.1212">
+    <data-source name="antidote@localhost" uuid="531ec52a-d442-45e1-8daa-10fbeb8504c5">
+      <database-info product="PostgreSQL" version="10.2" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
       <user-name>postgres</user-name>
-      <introspection-schemas>CSC_181:public</introspection-schemas>
-    </data-source>
-    <data-source name="postgres@localhost" uuid="a097a5f3-9de7-4eaf-b679-e9c0f35d9d83">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <secret-storage>master_key</secret-storage>
-      <first-sync>true</first-sync>
+      <introspection-schemas>antidote:public</introspection-schemas>
     </data-source>
   </component>
 </project>

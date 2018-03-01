@@ -1,29 +1,3 @@
-function login(){
-$.ajax(
-      {
-        url: 'http://127.0.0.1:5000/login',
-        contentType: 'application/json; charset=utf-8',
-        data: JSON.stringify({
-          'username': $("#usr").val(),
-          'password': $("#pwd").val()
-        }),
-        type: "POST",
-        dataType: "json",
-        error: function (e) {
-            alert('Something Went Wrong!!');
-        },
-        success: function (response) {
-            window.location = response.url;
-        },
-          beforeSend: function(xhrObj){
-            xhrObj.setRequestHeader("Authorization",
-                "Basic " + btoa("ako:default"));
-      }
-
-      });
-}
-
-
 function postanswer1() {
     $.ajax(
         {
@@ -46,8 +20,15 @@ function postanswer1() {
                 }
             }
         });
-   /* redirect1();*/
 }
+
+
+
+
+
+
+
+
 
 function postanswer2() {
     $.ajax(
@@ -73,8 +54,16 @@ function postanswer2() {
                 }
             }
         });
-    /*redirect2();*/
 }
+
+
+
+
+
+
+
+
+
 function postanswer3() {
     $.ajax(
         {
@@ -99,6 +88,15 @@ function postanswer3() {
             }
         });
 }
+
+
+
+
+
+
+
+
+
 function postanswer4() {
     $.ajax(
         {
@@ -123,6 +121,15 @@ function postanswer4() {
             }
         });
 }
+
+
+
+
+
+
+
+
+
 function postanswer5() {
     $.ajax(
         {
@@ -147,6 +154,15 @@ function postanswer5() {
             }
         });
 }
+
+
+
+
+
+
+
+
+
 function postanswer6() {
     $.ajax(
         {
@@ -171,6 +187,15 @@ function postanswer6() {
             }
         });
 }
+
+
+
+
+
+
+
+
+
 function postanswer7() {
     $.ajax(
         {
@@ -195,6 +220,15 @@ function postanswer7() {
             }
         });
 }
+
+
+
+
+
+
+
+
+
 function postanswer8() {
     $.ajax(
         {
@@ -219,6 +253,14 @@ function postanswer8() {
             }
         });
 }
+
+
+
+
+
+
+
+
 
 function postanswer9() {
     $.ajax(
@@ -245,6 +287,14 @@ function postanswer9() {
         });
 }
 
+
+
+
+
+
+
+
+
 function postanswer10() {
     $.ajax(
         {
@@ -269,6 +319,14 @@ function postanswer10() {
             }
         });
 }
+
+
+
+
+
+
+
+
 
 function postanswer11() {
     $.ajax(
@@ -295,6 +353,14 @@ function postanswer11() {
         });
 }
 
+
+
+
+
+
+
+
+
 function postanswer12() {
     $.ajax(
         {
@@ -319,6 +385,14 @@ function postanswer12() {
             }
         });
 }
+
+
+
+
+
+
+
+
 
 function postanswer13() {
     $.ajax(
@@ -345,6 +419,14 @@ function postanswer13() {
         });
 }
 
+
+
+
+
+
+
+
+
 function postanswer14() {
     $.ajax(
         {
@@ -369,6 +451,14 @@ function postanswer14() {
             }
         });
 }
+
+
+
+
+
+
+
+
 
 function postanswer15() {
     $.ajax(
@@ -395,6 +485,14 @@ function postanswer15() {
         });
 }
 
+
+
+
+
+
+
+
+
 function postanswer16() {
     $.ajax(
         {
@@ -419,6 +517,14 @@ function postanswer16() {
             }
         });
 }
+
+
+
+
+
+
+
+
 
 function postanswer17() {
     $.ajax(
@@ -445,30 +551,13 @@ function postanswer17() {
         });
 }
 
-function postanswer18() {
-    $.ajax(
-        {
-            url: "http://127.0.0.1:5000/Quiz/answer/get18",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                'answer18': $("#answer18").val()
-
-            }),
-            type: "POST",
-            dataType: "json",
-            error: function (e) {
-            },
-            success: function (resp) {
-                if (resp.status == 'ok') {
-
-                }
-                else {
 
 
-                }
-            }
-        });
-}
+
+
+
+
+
 
 function total_anx() {
     $.ajax(
@@ -488,6 +577,13 @@ function total_anx() {
 }
 
 
+
+
+
+
+
+
+
 function total_dep() {
     $.ajax(
         {
@@ -504,6 +600,15 @@ function total_dep() {
             }
         });
 }
+
+
+
+
+
+
+
+
+
 function get_anxresult(){
 
 	 $("#result_anx").show();
@@ -535,6 +640,13 @@ $.ajax({
 }
 
 
+
+
+
+
+
+
+
 function result_anx(totalscore,diagnosis)
 {
    return '<div class="container-fluid" >' +
@@ -544,6 +656,11 @@ function result_anx(totalscore,diagnosis)
 		'<b><p>' +diagnosis+ '</p></b>'+
        '</div>'
 }
+
+
+
+
+
 
 
 
@@ -579,6 +696,13 @@ $.ajax({
 }
 
 
+
+
+
+
+
+
+
 function result_dep(totalscore,diagnosis)
 {
    return '<div class="container-fluid" >' +
@@ -588,6 +712,13 @@ function result_dep(totalscore,diagnosis)
 		'<b><p>' +diagnosis+ '</p></b>'+
        '</div>'
 }
+
+
+
+
+
+
+
 
 
 function review_anx_answers(){
@@ -626,6 +757,10 @@ $.ajax({
 
 
 
+
+
+
+
 function review_anx(anx_qstn, question, correspondence, points)
 {
    return '<div class="container-fluid" >' +
@@ -639,6 +774,12 @@ function review_anx(anx_qstn, question, correspondence, points)
 	   '<b><p>' +points+  '</p></b>'+
        '</div>'
 }
+
+
+
+
+
+
 
 
 
@@ -675,6 +816,13 @@ $.ajax({
 }
 
 
+
+
+
+
+
+
+
 function review_dep(dep_qstn, question, correspondence, points)
 {
    return '<div class="container-fluid" >' +
@@ -694,33 +842,9 @@ function review_dep(dep_qstn, question, correspondence, points)
 
 
 
-/*function login() {
-    var loCId = $('#username').val();
-   data:$('form').serialize(),
-  var locTitle = $('#password').val();
-  $.ajax({
-   url: 'http://127.0.0.1:5000/login/'+loCId+'/'+locTitle,
-    type: "POST",
-      success: function(resp) {
-       if(resp.status==='ok'){
-            window.location.replace('Antidote.html');
-       }else if(resp.status==='error'){
-            window.location.replace('Antidote(LogIn).html');
-       }setRequestHeader("Authorization",
-                        "Basic " + btoa("ako:akolagini"));
-        }
-  });
-}/**
- * Created by Dustin Gerard on 5/14/2017.
 
 
 
-      },
-      error: function(resp) {
-        window.location.replace('/texs/404.html');
-      },
-      beforeSend: function (xhrObj){
-              xhrObj.*/
 
 function redirect1() {
     window.location =  'AnxietyQuestion2.html';
@@ -749,11 +873,6 @@ function redirect5() {
 
 function redirect6() {
     window.location =  'AnxietyQuestion7.html';
-    return false;
-}
-
-function redirect7() {
-    window.location =  'AnxietyQuestion8.html';
     return false;
 }
 
@@ -805,121 +924,4 @@ function finishedanxietyassessment() {
 function finisheddepressionassessment() {
     window.location =  'DepressionFinishedAssessment.html';
     return false;
-}
-
-function viewanxietyresult() {
-    window.location =  'AnxietyAssessmentResult.html';
-    return false;
-}
-
-function viewdepressionresult() {
-    window.location =  'DepressionAssessmentResult';
-    return false;
-}
-
-function success() {
-    window.location =  'SuccessfulRegistration.html';
-    return false;
-}
-
-function first_name() {
-    $.ajax(
-        {
-            url: "http://127.0.0.1:5000/SignUp/first_name/getfname",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                'fname': $("#fname").val()
-
-            }),
-            type: "POST",
-            dataType: "json",
-            error: function (e) {
-            },
-            success: function (resp) {
-                if (resp.status == 'ok') {
-
-                }
-                else {
-
-
-                }
-            }
-        });
-}
-
-function last_name() {
-    $.ajax(
-        {
-            url: "http://127.0.0.1:5000/SignUp/last_name/getlname",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                'lname': $("#lname").val()
-
-            }),
-            type: "POST",
-            dataType: "json",
-            error: function (e) {
-            },
-            success: function (resp) {
-                if (resp.status == 'ok') {
-
-                }
-                else {
-
-
-                }
-            }
-        });
-}
-
-
-function user_name() {
-    $.ajax(
-        {
-            url: "http://127.0.0.1:5000/SignUp/user_name/getuname",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                'uname': $("#uname").val()
-
-            }),
-            type: "POST",
-            dataType: "json",
-            error: function (e) {
-            },
-            success: function (resp) {
-                if (resp.status == 'ok') {
-
-                }
-                else {
-
-
-                }
-            }
-        });
-}
-
-
-function password() {
-    $.ajax(
-        {
-            url: "http://127.0.0.1:5000/SignUp/password/getpword",
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({
-                'pword': $("#pword").val()
-
-            }),
-            type: "POST",
-            dataType: "json",
-            error: function (e) {
-            },
-            success: function (resp) {
-                if (resp.status == 'ok') {
-
-                }
-                else {
-
-
-                }
-            }
-        });
 }

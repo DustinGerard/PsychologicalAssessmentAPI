@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, url_for, request
-from flask.ext.httpauth import HTTPBasicAuth
+from flask_httpauth import HTTPBasicAuth
 import sys, flask
 import model
 
@@ -19,21 +19,14 @@ def spcall(qry, param, commit=False):
         res = [("Error: " + str(sys.exc_info()[0]) + " " + str(sys.exc_info()[1]),)]
     return res
 
-@auth.get_password
-def getpassword(username):
-    return 'default'
 
-@app.route('/login', methods=['POST'])
-@auth.login_required
-def login():
-    params = request.get_json()
 
-    res = spcall('login', (params['username'], params['password']))
-    print str(res[0][0])
-    if 'Error' in str(res[0][0]):
-        return jsonify(status='error', url='Antidote(LogIn).html')
 
-    return jsonify(status='ok', url='Antidote.html')
+
+
+
+
+
 
 @app.route('/Quiz/answer/get1', methods=['POST'])
 def postanswer1():
@@ -44,6 +37,15 @@ def postanswer1():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get2', methods=['POST'])
 def postanswers2():
     params = request.get_json()
@@ -54,6 +56,15 @@ def postanswers2():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get3', methods=['POST'])
 def postanswers3():
     params = request.get_json()
@@ -63,6 +74,15 @@ def postanswers3():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get4', methods=['POST'])
 def postanswers4():
     params = request.get_json()
@@ -73,6 +93,15 @@ def postanswers4():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get5', methods=['POST'])
 def postanswers5():
     params = request.get_json()
@@ -82,6 +111,15 @@ def postanswers5():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get6', methods=['POST'])
 def postanswers6():
     params = request.get_json()
@@ -91,6 +129,15 @@ def postanswers6():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get7', methods=['POST'])
 def postanswers7():
     params = request.get_json()
@@ -100,6 +147,15 @@ def postanswers7():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get8', methods=['POST'])
 def postanswers8():
     params = request.get_json()
@@ -109,6 +165,16 @@ def postanswers8():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/Quiz/answer/get9', methods=['POST'])
 def postanswers9():
@@ -120,6 +186,17 @@ def postanswers9():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get10', methods=['POST'])
 def postanswers10():
     params = request.get_json()
@@ -129,6 +206,16 @@ def postanswers10():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/Quiz/answer/get11', methods=['POST'])
 def postanswers11():
@@ -140,6 +227,19 @@ def postanswers11():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get12', methods=['POST'])
 def postanswers12():
     params = request.get_json()
@@ -149,6 +249,19 @@ def postanswers12():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/Quiz/answer/get13', methods=['POST'])
 def postanswers13():
@@ -160,6 +273,20 @@ def postanswers13():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get14', methods=['POST'])
 def postanswers14():
     params = request.get_json()
@@ -169,6 +296,19 @@ def postanswers14():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/Quiz/answer/get15', methods=['POST'])
 def postanswers15():
@@ -180,6 +320,20 @@ def postanswers15():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get16', methods=['POST'])
 def postanswers16():
     params = request.get_json()
@@ -189,6 +343,21 @@ def postanswers16():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/Quiz/answer/get17', methods=['POST'])
 def postanswers17():
@@ -200,6 +369,22 @@ def postanswers17():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/answer/get18', methods=['POST'])
 def postanswers18():
     params = request.get_json()
@@ -210,6 +395,22 @@ def postanswers18():
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/Quiz/total_anx', methods=['POST'])
 def total_anx():
     res = spcall('total_anx', ('1'), True)
@@ -217,6 +418,20 @@ def total_anx():
     if 'Error' in res[0][0]:
         return jsonify({'status': 'error', 'message': res[0][0]})
     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/Quiz/total_dep', methods=['POST'])
 def total_dep():
@@ -229,22 +444,13 @@ def total_dep():
 
 
 
-# @app.route('/answer', methods=['POST'])
-# def answer():
-#     params = request.get_json()
-#     one = params["one"]
-#     two = params["two"]
-#     three = params["three"]
-#     four = params["four"]
-#     five = params["five"]
-#     six = params["six"]
-#     seven = params["seven"]
-#     eight = params["eight"]
-#     res = spcall('answer', (one, two, three, four, five, six, seven, eight), True)
-#
-#     if 'Error' in res[0][0]:
-#         return jsonify({'status': 'error', 'message': res[0][0]})
-#     return jsonify({'status': 'ok', 'message': res[0][0]})
+
+
+
+
+
+
+
 
 @app.route('/get_anxresult', methods=['GET'])
 def get_anxresult():
@@ -257,6 +463,21 @@ def get_anxresult():
     for r in res:
      recs.append({"totalscore": str(r[0]), "diagnosis": str(r[1])})
     return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route('/get_depresult', methods=['GET'])
@@ -272,6 +493,19 @@ def get_depresult():
     return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/review_anx_answers', methods=['GET'])
 def review_anx():
     res = spcall('review_anx_answers', (), True)
@@ -283,6 +517,19 @@ def review_anx():
     for r in res:
      recs.append({"anx_qstn": str(r[0]), "question": str(r[1]), "correspondence": str(r[2]), "points": str(r[3])})
     return jsonify({'status': 'ok', 'entries': recs, 'count': len(recs)})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route('/review_dep_answers', methods=['GET'])
 def review_dep():
@@ -301,50 +548,6 @@ def review_dep():
 
 
 
-
-@app.route('/SignUp/first_name/getfname', methods=['POST'])
-def first_name():
-    params = request.get_json()
-    fname = params["fname"]
-    res = spcall('first_name', (fname), True)
-
-    if 'Error' in res[0][0]:
-        return jsonify({'status': 'error', 'message': res[0][0]})
-    return jsonify({'status': 'ok', 'message': res[0][0]})
-
-
-@app.route('/SignUp/last_name/getlname', methods=['POST'])
-def last_name():
-    params = request.get_json()
-    lname = params["lname"]
-    res = spcall('last_name', (lname), True)
-
-    if 'Error' in res[0][0]:
-        return jsonify({'status': 'error', 'message': res[0][0]})
-    return jsonify({'status': 'ok', 'message': res[0][0]})
-
-@app.route('/SignUp/user_name/getuname', methods=['POST'])
-def user_name():
-    params = request.get_json()
-    uname = params["uname"]
-    res = spcall('user_name', (uname), True)
-
-    if 'Error' in res[0][0]:
-        return jsonify({'status': 'error', 'message': res[0][0]})
-    return jsonify({'status': 'ok', 'message': res[0][0]})
-
-
-
-
-@app.route('/SignUp/password/getpword', methods=['POST'])
-def password():
-    params = request.get_json()
-    pword = params["pword"]
-    res = spcall('password', (pword), True)
-
-    if 'Error' in res[0][0]:
-        return jsonify({'status': 'error', 'message': res[0][0]})
-    return jsonify({'status': 'ok', 'message': res[0][0]})
 
 
 
@@ -366,4 +569,4 @@ def add_cors(resp):
     return resp
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(threaded=True)
